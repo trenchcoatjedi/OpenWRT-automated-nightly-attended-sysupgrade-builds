@@ -1,4 +1,4 @@
-# OpenWRT-automated-nightly-firmware-builds
+# OpenWRT automated nightly attended sysupgrade builds using AUC
 ### Requirements and Recommendations
 
 This command requires auc, wget, findutils-xargs and all their dependencies. To install from shell:
