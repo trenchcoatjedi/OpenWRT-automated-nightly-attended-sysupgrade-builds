@@ -29,4 +29,4 @@ Prior to adding to crontab, change "/path/to/file.name" to the location the firm
 
 To prevent nightly overwriting of the downloaded firmware binaries, the date command can be used in the destination path to create unique file name each day:
 
-`59 23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/AUC-firmware-$(date '+%Y-%m-%d)`
+`59 23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/AUC-firmware-$(date '+%Y-%m-%d).bin`
