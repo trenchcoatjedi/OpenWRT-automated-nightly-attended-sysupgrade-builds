@@ -1,7 +1,7 @@
 # OpenWRT automated nightly attended sysupgrade builds
 ### Requirements and Recommendations
 
-This command requires auc, wget, findutils-xargs and all their dependencies. To install from shell:
+This command requires auc, wget, xargs and all their dependencies. To install from shell:
 
 `opkg update`
 
