@@ -9,9 +9,9 @@ This command requires auc, wget, xargs and all their dependencies. To install fr
 
 Persistent storage (attached, network, cloud) is recommended and may be required for devices with low memory. How to setup persistent mount points is beyond the scope of this guide.
 
-## AUC firmware binary automated download command
+## AUC generated firmware binary automated download without invoking sysupgrade
 
-This command executes a dry-run of AUC and automatically downloads the built firmware binary to the specified path
+This command executes an automated dry-run of AUC and downloads the built firmware binary to the specified path:
 
 `auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/to/file.name`
 
@@ -25,7 +25,7 @@ The above command can be run from the shell at any time or can be put in the cro
 
 Prior to adding to crontab, change "/path/to/file.name" to the location the firmware binary is to be downloaded to. If this line is added to the crontab as is, the firmware will be overwritten each night and each build only stored for 24 hours.
 
-## Automated versioning by date and time
+## Automated filename versioning of downloaded firmware binaries by date and time
 
 To prevent nightly overwriting of the downloaded firmware binaries, the date command can be used in the destination path to create unique file name each day:
 
