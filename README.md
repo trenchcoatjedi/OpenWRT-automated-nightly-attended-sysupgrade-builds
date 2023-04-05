@@ -23,4 +23,10 @@ The above command can be run from the shell at any time or can be put in the cro
 
 `59 23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/to/file.name`
 
-Prior to adding to crontab, change "/path/to/file.name" to the location the firmware binary is to be downloaded to. 
+Prior to adding to crontab, change "/path/to/file.name" to the location the firmware binary is to be downloaded to. If this line is added to the crontab as is, the firmware will be overwritten each night and each build only stored for 24 hours.
+
+## Automated versioning by date
+
+To prevent nightly overwriting of the downloaded firmware binaries, the date command can be used in the destination path to create unique file name each day:
+
+`59 23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/AUC-firmware-$(date '+%Y-%m-%d)`
