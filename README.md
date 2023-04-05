@@ -9,7 +9,7 @@ This command requires auc, wget, xargs and all their dependencies. To install fr
 
 Persistent storage (attached, network, cloud) is recommended and may be required for devices with low memory. How to setup persistent mount points is beyond the scope of this guide.
 
-## AUC firmware binary automated download command on OpenWRT
+## AUC firmware binary automated download command
 
 This command executes a dry-run of AUC and automatically downloads the built firmware binary to the specified path
 
