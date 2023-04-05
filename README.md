@@ -31,7 +31,7 @@ To prevent nightly overwriting of the downloaded firmware binaries, the date com
 
 `59 23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/AUC-firmware-$(date '+%Y-%m-%d).bin`
 
-If this is automated to run more than once per day, the time of download can also be added:
+If this is automated to run more than once per day, the time of download can also be added to the file name. This example will download two firmwares per day at 11:59:00 and 23:59:00:
 
-`59 23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/AUC-firmware-$(date '+%Y-%m-%d-%H%M).bin`
+`59 11,23 * * * auc -n -y 2>&1 >/dev/null | grep -Eo 'https://sysupgrade.openwrt.org/[^ ]+' | xargs -I{} wget -q {} -O /path/AUC-firmware-$(date '+%Y-%m-%d-%H%M).bin`
 
